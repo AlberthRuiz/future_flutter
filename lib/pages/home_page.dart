@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:futuresg7/pages/container_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,8 +25,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future getMandarina() async {
-    title = await mensaje2();
-    setState(() {});
+    final result = await mensaje2();
+    if (mounted) {
+      setState(() {
+        title = result;
+      });
+    }
+    // title = await mensaje2();
+    // setState(() {});
   }
 
   Widget contenedor3() {
@@ -39,6 +46,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  late Future _myFuture;
   @override
   void initState() {
     // TODO: implement initState
@@ -53,7 +61,14 @@ class _HomePageState extends State<HomePage> {
     // });
 
     //SI SE PUEDE OPCION 2
-    getMandarina();
+    _myFuture = getMandarina();
+  }
+
+  @override
+  void dispose() {
+    // mensaje2
+    // TODO: implement dispose
+    super.dispose();
   }
 
   // Future<void> mensaje3() async {}
@@ -68,47 +83,33 @@ class _HomePageState extends State<HomePage> {
     //   setState(() {});
     // });
     return Scaffold(
-      appBar: AppBar(
-        title: Text("FUTURES"),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: Text(
-              title,
-              style: TextStyle(fontSize: 30),
+      // appBar: AppBar(
+      //   title: Text("FUTURES"),
+      // ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-          ),
-          // Contenedor(),
-          // Contenedor(),
-          // Contenedor(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.red,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => ContainerPage(),
+                  ),
+                );
+              },
+              child: Contenedor(),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.red,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.red,
-            ),
-          ),
-          // Contenedor(),
-          // Contenedor(),
-        ],
+            Contenedor(),
+            Contenedor(),
+          ],
+        ),
       ),
     );
   }

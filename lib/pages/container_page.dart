@@ -4,9 +4,9 @@ class ContainerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Container Page"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("Container Page"),
+      // ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
