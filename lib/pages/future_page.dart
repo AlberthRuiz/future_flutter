@@ -30,6 +30,18 @@ class _FuturePageState extends State<FuturePage> {
     );
   }
 
+  Future<List<Map<String, dynamic>>> getItems() async {
+    return Future.delayed(Duration(seconds: 5), () {
+      return [
+        {"id": 1, "name": "zapatos"},
+        {"id": 2, "name": "vestidos"},
+        {"id": 3, "name": "zapatillas"},
+        {"id": 4, "name": "polos"},
+        {"id": 5, "name": "camisas"},
+      ];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,15 +50,15 @@ class _FuturePageState extends State<FuturePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: getProducts(),
+          future: getItems(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               print(snapshot.data);
-              List<String> data = snapshot.data;
+              List<Map<String, dynamic>> data = snapshot.data;
               return ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(data[index]);
+                  return Text(data[index]["name"]);
                 },
               );
             }
