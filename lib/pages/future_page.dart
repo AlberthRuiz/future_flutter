@@ -29,14 +29,21 @@ class _FuturePageState extends State<FuturePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: getNumber(),
+          future: getTitle(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               dynamic respuesta = snapshot.data;
               return Text(respuesta.toString());
-            } else {
-              return Text("Cargando...");
             }
+            return SizedBox(
+              width: 120,
+              height: 120,
+              child: CircularProgressIndicator(
+                color: Colors.pink,
+                strokeWidth: 20,
+              ),
+            );
+
             // print("snapshot: $snapshot");
             // print("connection state: ${snapshot.connectionState}");
             // print("has data: ${snapshot.hasData}");
