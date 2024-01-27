@@ -21,6 +21,15 @@ class _FuturePageState extends State<FuturePage> {
     });
   }
 
+  Future<List<String>> getProducts() async {
+    return Future.delayed(
+      Duration(seconds: 5),
+      () {
+        return ["Fresa", "Papaya", "Platano", "Manzana"];
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,29 +38,46 @@ class _FuturePageState extends State<FuturePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: getTitle(),
+          future: getProducts(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              dynamic respuesta = snapshot.data;
-              return Text(respuesta.toString());
+              print(snapshot.data);
+              List<String> data = snapshot.data;
+              return ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(data[index]);
+                },
+              );
             }
-            return SizedBox(
-              width: 120,
-              height: 120,
-              child: CircularProgressIndicator(
-                color: Colors.pink,
-                strokeWidth: 20,
-              ),
-            );
-
-            // print("snapshot: $snapshot");
-            // print("connection state: ${snapshot.connectionState}");
-            // print("has data: ${snapshot.hasData}");
-            // print("has error: ${snapshot.hasError}");
-            // dynamic variable = snapshot.data;
-            // return Text(variable.toString());
+            return CircularProgressIndicator();
           },
         ),
+
+        // FutureBuilder(
+        //   future: getTitle(),
+        //   builder: (BuildContext context, AsyncSnapshot snapshot) {
+        //     if (snapshot.hasData) {
+        //       dynamic respuesta = snapshot.data;
+        //       return Text(respuesta.toString());
+        //     }
+        //     return SizedBox(
+        //       width: 120,
+        //       height: 120,
+        //       child: CircularProgressIndicator(
+        //         color: Colors.pink,
+        //         strokeWidth: 20,
+        //       ),
+        //     );
+
+        //     // print("snapshot: $snapshot");
+        //     // print("connection state: ${snapshot.connectionState}");
+        //     // print("has data: ${snapshot.hasData}");
+        //     // print("has error: ${snapshot.hasError}");
+        //     // dynamic variable = snapshot.data;
+        //     // return Text(variable.toString());
+        //   },
+        // ),
       ),
     );
   }
