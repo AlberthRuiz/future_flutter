@@ -185,7 +185,7 @@ class ContainerPage extends StatelessWidget {
                     TextSpan(
                       text: "Gradiente 2",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        // fontWeight: FontWeight.bold,
                         // color: Colors.red,
                         foreground: Paint()
                           ..shader = LinearGradient(
@@ -195,20 +195,38 @@ class ContainerPage extends StatelessWidget {
                             ],
                             // stops: [0.2, 0.5],
                           ).createShader(
-                            Rect.fromLTRB(20, 20, 20, 20),
-                          ),
+                              Rect.fromPoints(Offset(0, 0), Offset(200, 70))),
                       ),
                     ),
                   ],
                 ),
-              ), // Text(
-              //   "Texto con gradiente 2",
-              //   style: TextStyle(
-              //     fontSize: 35,
-              //     fontWeight: FontWeight.bold,
-              //     // color: Colors.white,
-              //   ),
-              // )
+              ),
+              //BORDERS EN CONTAINER
+              Container(
+                margin: EdgeInsets.all(24),
+                width: 300,
+                height: 120,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.red,
+                        Colors.orange,
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(45),
+                    border: Border.all(color: Colors.blue, width: 10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.red,
+                          offset: Offset(7, 7),
+                          blurRadius: 10)
+                    ]),
+                child: Text("HOLA"),
+              )
             ],
           ),
         ),
