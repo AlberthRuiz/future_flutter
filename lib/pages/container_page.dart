@@ -59,6 +59,36 @@ class ContainerPage extends StatelessWidget {
                   color: Colors.orange,
                 ),
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 160,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Color(0xff96cbfa),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        topLeft: Radius.circular(50),
+                      )),
+                  child: Text(
+                    "Challenge",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                      )),
+                )
+              ],
             )
           ],
         ),
