@@ -1,36 +1,48 @@
 import 'package:flutter/material.dart';
 
-class FuturePage extends StatelessWidget {
+class FuturePage extends StatefulWidget {
+  @override
+  State<FuturePage> createState() => _FuturePageState();
+}
+
+class _FuturePageState extends State<FuturePage> {
+  Future<String> getTitle() async {
+    return Future.delayed(
+      Duration(seconds: 5),
+      () {
+        return "Los inocentes";
+      },
+    );
+  }
+
+  Future<int> getNumber() async {
+    return Future.delayed(Duration(seconds: 3), () {
+      return 999;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Future<String> getTitle() async {
-      return Future.delayed(
-        Duration(seconds: 5),
-        () {
-          return "Los inocentes";
-        },
-      );
-    }
-
-    Future<int> getNumber() async {
-      return Future.delayed(Duration(seconds: 3), () {
-        return 999;
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Future Page"),
       ),
       body: Center(
         child: FutureBuilder(
-          future: getTitle(),
+          future: getNumber(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
-            print("snapshot: $snapshot");
-            print("connection state: ${snapshot.connectionState}");
-            print("has data: ${snapshot.hasData}");
-            print("has error: ${snapshot.hasError}");
-            return Text("HOLA");
+            if (snapshot.hasData) {
+              dynamic respuesta = snapshot.data;
+              return Text(respuesta.toString());
+            } else {
+              return Text("Cargando...");
+            }
+            // print("snapshot: $snapshot");
+            // print("connection state: ${snapshot.connectionState}");
+            // print("has data: ${snapshot.hasData}");
+            // print("has error: ${snapshot.hasError}");
+            // dynamic variable = snapshot.data;
+            // return Text(variable.toString());
           },
         ),
       ),
