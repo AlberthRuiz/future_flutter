@@ -46,7 +46,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  late Future _myFuture;
   @override
   void initState() {
     // TODO: implement initState
@@ -61,7 +60,6 @@ class _HomePageState extends State<HomePage> {
     // });
 
     //SI SE PUEDE OPCION 2
-    _myFuture = getMandarina();
   }
 
   @override
