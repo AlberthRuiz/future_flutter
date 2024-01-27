@@ -60,6 +60,37 @@ class ContainerPage extends StatelessWidget {
                 ),
               ),
             ),
+            //solucion containers
+            Container(
+              width: 300,
+              height: 90,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(45),
+              ),
+              child: Container(
+                width: 200,
+                height: 90,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade200,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(45),
+                    bottomLeft: Radius.circular(45),
+                  ),
+                ),
+                child: Text(
+                  "Challenge",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+
+            // SOLUCION WILSON
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
