@@ -26,27 +26,28 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 40),
-                    height: 200, //valor evaluar dinamico
-                    width: screnWidth - 80,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          offset: Offset(0, 4),
-                          blurRadius: 12,
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.only(top: 40),
+                      width: screnWidth - 80,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: Offset(0, 4),
+                            blurRadius: 12,
+                          )
+                        ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                       child: Column(
                         children: [
                           Row(
@@ -162,86 +163,101 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Text("Notable works"),
-                Text("Basado en la experiencia profesional"),
-                SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(25),
-                          child: Image.network(
-                            "https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg?auto=compress&cs=tinysrgb&w=600",
-                            width: screnWidth / 2.6,
-                            height: 110,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text("DeSARROLLADOR sENIOR"),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text("TATA")
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(25),
-                          child: Image.network(
-                            "https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg?auto=compress&cs=tinysrgb&w=600",
-                            width: screnWidth / 2.6,
-                            height: 110,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text("DeSARROLLADOR sENIOR"),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text("TATA")
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Container(
-                  width: screnWidth - 50,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(18),
+                  SizedBox(
+                    height: 24,
                   ),
-                  child: Column(
+                  Text("Notable works"),
+                  Text("Basado en la experiencia profesional"),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                        padding: EdgeInsetsDirectional.all(8),
-                        child: Text("Sobre mi"),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(25),
+                            child: Image.network(
+                              "https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg?auto=compress&cs=tinysrgb&w=600",
+                              width: screnWidth / 2.6,
+                              height: 110,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("DeSARROLLADOR sENIOR"),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("TATA")
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(25),
+                            child: Image.network(
+                              "https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg?auto=compress&cs=tinysrgb&w=600",
+                              width: screnWidth / 2.6,
+                              height: 110,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("DeSARROLLADOR sENIOR"),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("TATA")
+                        ],
+                      ),
                     ],
                   ),
-                )
-              ],
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    width: screnWidth - 50,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          padding: EdgeInsetsDirectional.all(8),
+                          child: Text("Sobre mi"),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Text(
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at eleifend libero, eu rhoncus orci. Nam tortor leo, feugiat at orci ac, finibus elementum nisi. Phasellus",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
