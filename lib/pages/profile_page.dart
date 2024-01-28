@@ -109,7 +109,18 @@ class ProfilePage extends StatelessWidget {
                           )
                         ],
                       ),
-                      Row(),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Chat"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Follow"),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
