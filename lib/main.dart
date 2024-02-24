@@ -9,7 +9,7 @@ import 'package:futuresg7/pages/tab_bar_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: ProfilePage(),
+      home: FuturePage(),
       debugShowCheckedModeBanner: false,
     ),
   );
